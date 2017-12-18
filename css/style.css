@@ -31,7 +31,7 @@ nav button {
   align-items: center;
   height: 350px;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 20px;
   width: 80%;
 }
 
@@ -48,12 +48,39 @@ nav button {
   width: 800px;
 }
 
+.statistics {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  height: 100px;
+}
+
+.timer {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 80px;
+  width: 80px;
+}
+
+.scoreboard {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 80px;
+  width: 80px;
+}
+
 .color-buttons-container {
   border: 1px solid black;
   border-radius: 5px;
   margin: 0 auto;
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 20px;
   width: 400px;
 }
 
@@ -101,13 +128,28 @@ nav button {
   }
 
   .screen-container {
-    height: 200px;
+    height: 150px;
     width: 95%;
     margin-top: 10px;
   }
 
   .screen {
+    height: 80px;
     width: 80%;
+  }
+
+  .statistics {
+    margin-top: 10px;
+    height: 70px;
+    width: 95%;
+  }
+
+  .timer {
+    height: 50px;
+  }
+
+  .scoreboard {
+    height: 50px;
   }
 
   .color-buttons-container {
