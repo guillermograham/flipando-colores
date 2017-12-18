@@ -1,20 +1,27 @@
 $(() => {
 
   const $startBtn = $('#start-button');
+  const $quit = $('#quit-button');
   const $screen = $('.screen');
   const $buttons = $('.color-buttons');
   const $scoreDisplay = $('.score-display');
   const $livesRemaining = $('.lives-remaining');
+  const $timeRemaining = $('.time-display');
   const colorArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'];
   let lives = 3;
   let score = null;
   let fontColor = null;
+  let clockTimer;
+  let seconds = 5;
 
   function runGame(){
+    $timeRemaining.text(seconds);
     $livesRemaining.text(lives);
     if (lives <= 0) {
+      $screen.css('color', 'black');
       $screen.text('Game Over');
     } else {
+      startCountdownTimer();
       setScreen();
       colorWord();
       activateButtons();
@@ -49,5 +56,25 @@ $(() => {
     }
   }
 
+  function startCountdownTimer(){
+    clockTimer = setInterval(setCountdown, 1000);
+  }
+
+  function setCountdown(){
+    seconds--;
+    $timeRemaining.text(seconds);
+    if (seconds === 0){
+      clearInterval(clockTimer);
+      lives -=1;
+      seconds = 5;
+      return runGame();
+    }
+  }
+
+  function quitGame(){
+    location.reload();
+  }
+
   $startBtn.on('click', runGame);
+  $quit.on('click', quitGame);
 });
