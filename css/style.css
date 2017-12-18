@@ -1,6 +1,3 @@
-body {
-
-}
 
 main {
   border: 1px solid black;
@@ -9,6 +6,9 @@ main {
 }
 
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   border: 1px solid black;
   height: 50px;
 }
@@ -19,13 +19,27 @@ button {
   width: 180px;
 }
 
+nav button {
+  margin-right: 20px;
+}
+
 .screen-container {
   border: 1px solid black;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 350px;
   margin: 0 auto;
   margin-top: 50px;
   width: 80%;
+}
+
+.screen {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 100px;
+  width: 200px;
 }
 
 .full-screen-wrapper {
@@ -53,4 +67,36 @@ button {
 
 .color-buttons-container ul li button {
   margin: 20px 0;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    width: 280px;
+  }
+
+  main {
+    width: 280px;
+  }
+
+  nav {
+    width: 95%;
+  }
+
+  button {
+    width: 80px;
+    height: 20px;
+  }
+
+  .full-screen-wrapper {
+    width: 280px;
+  }
+
+  .screen-container {
+    background-color: blue;
+    width: 95%;
+  }
+
+  .color-buttons-container {
+    width: 95%;
+  }
 }
