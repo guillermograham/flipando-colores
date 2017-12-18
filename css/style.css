@@ -71,20 +71,22 @@ nav button {
 
 @media only screen and (max-width: 700px) {
   body {
-    width: 280px;
+    width: 100%;
   }
 
   main {
+    margin: 0 auto;
     width: 280px;
   }
 
   nav {
     width: 95%;
+    justify-content: center;
   }
 
   button {
-    width: 80px;
-    height: 20px;
+    width: 100px;
+    height: 25px;
   }
 
   .full-screen-wrapper {
@@ -92,11 +94,23 @@ nav button {
   }
 
   .screen-container {
-    background-color: blue;
+    height: 200px;
     width: 95%;
+    margin-top: 10px;
+  }
+
+  .screen {
+    width: 80%;
   }
 
   .color-buttons-container {
     width: 95%;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
+
+  .color-buttons-container ul li button {
+    margin: 5px 0;
+  }
+
 }
