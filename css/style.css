@@ -80,13 +80,20 @@ nav button {
   }
 
   nav {
+    border-radius: 5px;
     width: 95%;
-    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    justify-content: space-around;
   }
 
   button {
-    width: 100px;
-    height: 25px;
+    width: 120px;
+    height: 30px;
+  }
+
+  nav button {
+    margin: 0;
   }
 
   .full-screen-wrapper {
