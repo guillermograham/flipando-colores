@@ -4,11 +4,53 @@ body {
 
 main {
   border: 1px solid black;
-  margin: 0 auto;
-  width: 60%;
+  height: 100%;
+  width: 100%;
 }
 
 nav {
   border: 1px solid black;
-  background: light-blue;
+  height: 50px;
+}
+
+button {
+  border-radius: 5px;
+  height: 30px;
+  width: 180px;
+}
+
+.screen-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 350px;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.full-screen-wrapper {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 800px;
+}
+
+.color-buttons-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  width: 400px;
+}
+
+.color-buttons-container ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+.color-buttons-container ul li button {
+  margin: 20px 0;
 }
