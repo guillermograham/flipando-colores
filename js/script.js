@@ -3,14 +3,17 @@ $(() => {
   const $startBtn = $('#start-button');
   const $screen = $('.screen');
   const $buttons = $('.color-buttons');
+  const $scoreDisplay = $('.score-display');
+  const $livesRemaining = $('.lives-remaining');
   const colorArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'];
   let lives = 3;
   let score = null;
   let fontColor = null;
 
   function runGame(){
+    $livesRemaining.text(lives);
     if (lives <= 0) {
-      console.log('Game Over');
+      $screen.text('Game Over');
     } else {
       setScreen();
       colorWord();
@@ -37,11 +40,11 @@ $(() => {
     const answer = $(e.target).attr('id');
     if (answer === fontColor){
       score += 10;
-      console.log(`Score: ${score}`);
+      $scoreDisplay.text(score);
       return runGame();
     } else {
       lives -= 1;
-      console.log(`Lives: ${lives}`);
+      $livesRemaining.text(lives);
       return runGame();
     }
   }

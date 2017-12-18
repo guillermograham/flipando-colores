@@ -75,6 +75,13 @@ nav button {
   width: 80px;
 }
 
+.health {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 80px;
+  width: 80px;
+}
+
 .color-buttons-container {
   border: 1px solid black;
   border-radius: 5px;
@@ -149,6 +156,10 @@ nav button {
   }
 
   .scoreboard {
+    height: 50px;
+  }
+
+  .health {
     height: 50px;
   }
 
