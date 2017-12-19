@@ -7,14 +7,23 @@ $(() => {
   const $scoreDisplay = $('.score-display');
   const $livesRemaining = $('.lives-remaining');
   const $timeRemaining = $('.time-display');
+  const $red = $('#red');
+  const $blue = $('#blue');
+  const $yellow = $('#yellow');
+  const $green = $('#green');
+  const $orange = $('#orange');
+  const $purple = $('#purple');
   const colorArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'];
+  let tempArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'];
   let lives = 3;
   let score = 0;
   let fontColor = null;
   let clockTimer;
-  let seconds = 5;
+  let seconds = null;
+  let levelCount = 5;
 
   function runGame(){
+    resetClock();
     $startBtn.off('click', runGame);
     $scoreDisplay.text(score);
     $timeRemaining.text(seconds);
@@ -25,6 +34,7 @@ $(() => {
       resetGame();
       resetClock();
     } else {
+      if (levelCount < 4) shuffle(tempArray);
       startCountdownTimer();
       setScreen();
       colorWord();
@@ -41,7 +51,7 @@ $(() => {
 
   function resetClock(){
     clockTimer = null;
-    seconds = 5;
+    seconds = levelCount;
   }
 
   function setScreen(){
@@ -65,12 +75,23 @@ $(() => {
     if (answer === fontColor){
       score += 10;
       $scoreDisplay.text(score);
-      resetClock();
-      return runGame();
+      // resetClock();
+      if (score === 100){
+        levelCount--;
+        return runGame();
+      } else if (score === 200) {
+        levelCount--;
+        return runGame();
+      } else if (score === 200) {
+        levelCount--;
+        return runGame();
+      } else {
+        return runGame();
+      }
     } else {
       lives -= 1;
       $livesRemaining.text(lives);
-      resetClock();
+      // resetClock();
       return runGame();
     }
   }
@@ -89,6 +110,23 @@ $(() => {
       resetClock();
       return runGame();
     }
+  }
+
+  function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    assignBorders();
+  }
+
+  function assignBorders(){
+    $red.css('border', `2px solid ${tempArray[0]}`);
+    $blue.css('border', `2px solid ${tempArray[1]}`);
+    $yellow.css('border', `2px solid ${tempArray[2]}`);
+    $green.css('border', `2px solid ${tempArray[3]}`);
+    $orange.css('border', `2px solid ${tempArray[4]}`);
+    $purple.css('border', `2px solid ${tempArray[5]}`);
   }
 
   function quitGame(){
