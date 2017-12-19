@@ -1,6 +1,7 @@
 
 main {
   border: 1px solid black;
+  font-family: 'Ubuntu', sans-serif;
   height: 100%;
   width: 100%;
 }
