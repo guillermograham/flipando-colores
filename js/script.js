@@ -25,6 +25,7 @@ $(() => {
   function runGame(){
     resetClock();
     $startBtn.off('click', runGame);
+    $scoreDisplay.animate({ 'font-size': '10'}, 100);
     $scoreDisplay.text(score);
     $timeRemaining.text(seconds);
     $livesRemaining.text(lives);
@@ -46,6 +47,8 @@ $(() => {
     lives = 3;
     score = 0;
     fontColor = null;
+    $buttons.css('border', '1px solid black');
+    levelCount = 5;
     $startBtn.on('click', runGame);
   }
 
@@ -75,6 +78,7 @@ $(() => {
     if (answer === fontColor){
       score += 10;
       $scoreDisplay.text(score);
+      $scoreDisplay.animate({ 'font-size': '30'}, 100);
       // resetClock();
       if (score === 100){
         levelCount--;
@@ -82,7 +86,7 @@ $(() => {
       } else if (score === 200) {
         levelCount--;
         return runGame();
-      } else if (score === 200) {
+      } else if (score === 300) {
         levelCount--;
         return runGame();
       } else {
