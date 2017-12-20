@@ -28,6 +28,7 @@ $(() => {
     $scoreDisplay.animate({ 'font-size': '10'}, 100);
     $scoreDisplay.text(score);
     $timeRemaining.text(seconds);
+    $livesRemaining.animate({ 'font-size': '10'}, 100);
     $livesRemaining.text(lives);
     if (lives <= 0) {
       $screen.css('color', 'black');
@@ -95,6 +96,7 @@ $(() => {
     } else {
       lives -= 1;
       $livesRemaining.text(lives);
+      $livesRemaining.animate({ 'font-size': '30'}, 100);
       // resetClock();
       return runGame();
     }
@@ -111,6 +113,8 @@ $(() => {
       $buttons.off('click', checkAnswer);
       clearInterval(clockTimer);
       lives -=1;
+      $livesRemaining.text(lives);
+      $livesRemaining.animate({ 'font-size': '30'}, 100);
       resetClock();
       return runGame();
     }
