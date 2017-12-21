@@ -15,6 +15,18 @@ $(() => {
   const $green = $('#green');
   const $orange = $('#orange');
   const $purple = $('#purple');
+
+  const $first = $('.first');
+  const $second = $('.second');
+  const $third = $('.third');
+  const $fourth = $('.fourth');
+  const $fifth = $('.fifth');
+  const $sixth = $('.sixth');
+  const $seventh = $('.seventh');
+  let frontArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'black'];
+  let tempFrontArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple', 'black'];
+  let frontTimer;
+
   const colorArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'];
   let tempArray = ['red', 'blue', 'yellow', 'green', 'orange', 'purple'];
   let lives = 3;
@@ -39,7 +51,10 @@ $(() => {
       resetGame();
       resetClock();
     } else {
-      if (levelCount < 4) shuffle(tempArray);
+      if (levelCount < 4){
+        shuffle(tempArray);
+        assignBorders();
+      }
       startCountdownTimer();
       setScreen();
       colorWord();
@@ -128,7 +143,7 @@ $(() => {
       const j = Math.floor(Math.random() * (i + 1));
       [a[i], a[j]] = [a[j], a[i]];
     }
-    assignBorders();
+    // assignBorders();
   }
 
   function assignBorders(){
@@ -147,9 +162,31 @@ $(() => {
   function hideWelcomeScreen(){
     $welcomeScreen.hide();
     $startBtn.addClass('pulse');
+    clearInterval(frontTimer);
+  }
+
+  function startFrontAnimation(){
+    frontTimer = setInterval(frontAnimation, 1000);
+  }
+
+  function frontAnimation(){
+    shuffle(frontArray);
+    console.log(frontArray);
+    assignLetters(frontArray);
+  }
+
+  function assignLetters(animationarray){
+    $first.css('color', `${animationarray[0]}`);
+    $second.css('color', `${animationarray[1]}`);
+    $third.css('color', `${animationarray[2]}`);
+    $fourth.css('color', `${animationarray[3]}`);
+    $fifth.css('color', `${animationarray[4]}`);
+    $sixth.css('color', `${animationarray[5]}`);
+    $seventh.css('color', `${animationarray[6]}`);
   }
 
   $playBtn.on('click', hideWelcomeScreen);
   $startBtn.on('click', runGame);
   $quit.on('click', quitGame);
+  startFrontAnimation();
 });
