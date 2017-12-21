@@ -1,5 +1,7 @@
 $(() => {
 
+  const $playBtn = $('#play');
+  const $welcomeScreen = $('.welcome-screen');
   const $startBtn = $('#start-button');
   const $quit = $('#quit-button');
   const $screen = $('.screen');
@@ -25,6 +27,7 @@ $(() => {
   function runGame(){
     resetClock();
     $startBtn.off('click', runGame);
+    $startBtn.removeClass('pulse');
     $scoreDisplay.animate({ 'font-size': '10'}, 100);
     $scoreDisplay.text(score);
     $timeRemaining.text(seconds);
@@ -141,6 +144,12 @@ $(() => {
     location.reload();
   }
 
+  function hideWelcomeScreen(){
+    $welcomeScreen.hide();
+    $startBtn.addClass('pulse');
+  }
+
+  $playBtn.on('click', hideWelcomeScreen);
   $startBtn.on('click', runGame);
   $quit.on('click', quitGame);
 });
