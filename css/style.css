@@ -60,6 +60,15 @@ nav button {
   overflow: hidden;
 }
 
+.welcome-screen button {
+  margin: 0 auto;
+  margin-top: 20px;
+  font-family: 'Lato';
+  color: white;
+  background-color: black;
+  width: 200px;
+}
+
 .screen-container {
   border: 1px solid black;
   border-radius: 5px;
@@ -149,11 +158,12 @@ nav button {
   animation-timing-function: linear;
 }
 
-#play {
-  margin: 0 auto;
-  font-family: 'Lato';
-  color: white;
-  background-color: black;
+.instructions {
+  display: none;
+}
+
+.instructions.showing {
+  display: block;
 }
 
 button:active {
@@ -193,7 +203,7 @@ button:active {
   h1 {
     font-size: 60px;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
   }
 
   nav {
@@ -212,6 +222,11 @@ button:active {
 
   nav button {
     margin: 0;
+  }
+
+  .instructions.showing {
+    margin: 0 auto;
+    width: 220px;
   }
 
   .screen-container {

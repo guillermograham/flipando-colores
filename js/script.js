@@ -1,6 +1,8 @@
 $(() => {
 
   const $playBtn = $('#play');
+  const $instructionsBtn = $('#instructions-button');
+  const $instructions = $('.instructions');
   const $welcomeScreen = $('.welcome-screen');
   const $startBtn = $('#start-button');
   const $quit = $('#quit-button');
@@ -171,7 +173,6 @@ $(() => {
 
   function frontAnimation(){
     shuffle(frontArray);
-    console.log(frontArray);
     assignLetters(frontArray);
   }
 
@@ -185,7 +186,21 @@ $(() => {
     $seventh.css('color', `${animationarray[6]}`);
   }
 
+  function showInstructions(){
+    console.log('clicked!');
+    $instructions.addClass('showing');
+    $instructionsBtn.off('click', showInstructions);
+    $instructionsBtn.on('click', hideInstructions);
+  }
+
+  function hideInstructions(){
+    $instructions.removeClass('showing');
+    $instructionsBtn.on('click', showInstructions);
+    $instructionsBtn.off('click', hideInstructions);
+  }
+
   $playBtn.on('click', hideWelcomeScreen);
+  $instructionsBtn.on('click', showInstructions);
   $startBtn.on('click', runGame);
   $quit.on('click', quitGame);
   startFrontAnimation();
