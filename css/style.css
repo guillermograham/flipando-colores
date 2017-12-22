@@ -170,7 +170,7 @@ button:active {
   color: inherit;
 }
 
-#play:active {
+.welcome-screen button:active {
   color: black;
   background-color: white;
   border: 2px solid black;
