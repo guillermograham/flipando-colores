@@ -225,6 +225,7 @@ button:active {
   }
 
   .instructions.showing {
+    font-size: 14px;
     margin: 0 auto;
     width: 220px;
   }
