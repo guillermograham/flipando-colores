@@ -11,6 +11,7 @@ $(() => {
   const $scoreDisplay = $('.score-display');
   const $livesRemaining = $('.lives-remaining');
   const $timeRemaining = $('.time-display');
+  const $screenContainer = $('.screen-container');
   const $red = $('#red');
   const $blue = $('#blue');
   const $yellow = $('#yellow');
@@ -47,15 +48,19 @@ $(() => {
     $timeRemaining.text(seconds);
     $livesRemaining.animate({ 'font-size': '10'}, 100);
     $livesRemaining.text(lives);
+    $screenContainer.css('background-color', '#F5F4F6');
     if (lives <= 0) {
       $screen.css('color', 'black');
       $screen.text('Game Over');
       resetGame();
       resetClock();
     } else {
-      if (levelCount < 4){
+      if (score > 100){
         shuffle(tempArray);
         assignBorders();
+        if (score > 200){
+          colorScreenContainer();
+        }
       }
       startCountdownTimer();
       setScreen();
@@ -108,6 +113,9 @@ $(() => {
         levelCount--;
         return runGame();
       } else if (score === 300) {
+        levelCount--;
+        return runGame();
+      } else if (score === 400) {
         levelCount--;
         return runGame();
       } else {
@@ -187,7 +195,6 @@ $(() => {
   }
 
   function showInstructions(){
-    console.log('clicked!');
     $instructions.addClass('showing');
     $instructionsBtn.off('click', showInstructions);
     $instructionsBtn.on('click', hideInstructions);
@@ -197,6 +204,12 @@ $(() => {
     $instructions.removeClass('showing');
     $instructionsBtn.on('click', showInstructions);
     $instructionsBtn.off('click', hideInstructions);
+  }
+
+  function colorScreenContainer(){
+    const randomizer = Math.floor(Math.random()*6);
+    console.log(randomizer);
+    $screenContainer.css('background-color', `${colorArray[randomizer]}`);
   }
 
   $playBtn.on('click', hideWelcomeScreen);
